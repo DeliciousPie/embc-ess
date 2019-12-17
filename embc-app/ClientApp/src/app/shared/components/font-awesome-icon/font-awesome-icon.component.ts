@@ -14,8 +14,6 @@ export type IconSizes = 'lg'
   | '9x'
   | '10x';
 
-
-  // Font Awesome is changing 'data-title' to 'title'.....
 @Component({
   selector: 'app-font-awesome-icon',
   template: `
