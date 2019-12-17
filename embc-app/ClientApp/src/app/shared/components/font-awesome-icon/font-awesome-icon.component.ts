@@ -39,13 +39,14 @@ export class FontAwesomeIconComponent {
 
   get classes() {
     const cssClasses = {
-      'fa-border': this.border,
-      'fa-fw': this.fixedWidth,
-      'fa-inverse': this.inverse,
+      'fa-border'            : this.border,
+      'fa-fw'                : this.fixedWidth,
+      'fa-inverse'           : this.inverse,
       [`fas fa-${this.icon}`]: this.icon !== null,
-      [`fa-${this.size}`]: this.size !== null,
-      'toolTipAnchor': true,
-      [this.className]: this.className !== null,  // extra classes (if provided)
+      [`fa-${this.size}`]    : this.size !== null,
+      'toolTipAnchor'        : true,
+      'help-cursor'          : this.toolTip !== null,
+      [this.className]       : this.className !== null,   // extra classes (if provided)
     };
     return cssClasses;
   }

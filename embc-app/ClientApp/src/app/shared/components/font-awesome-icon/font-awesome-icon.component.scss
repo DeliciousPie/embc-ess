@@ -1,5 +1,6 @@
-$base-color: #f8f9fa; //#555;
+$base-color: #f8f9fa;
 $border-color: #38598a;
+$trans-time: 0.75s;
 
 .toolTipAnchor {
   position: relative;
@@ -7,14 +8,16 @@ $border-color: #38598a;
 }
 
 .toolTipText {
-    border: 1px solid $border-color;
+  visibility: hidden;
+  border: 1px solid $border-color;
+  opacity: 0;
+  transition: opacity $trans-time, visibility $trans-time;
 }
 
 .toolTipAnchor .toolTipText {
-  visibility: hidden;
   width: 1000%;
   background-color: $base-color;
-  color: darken($base-color, 60%); //#fff;
+  color: darken($base-color, 60%);
   text-align: center;
   border-radius: 6px;
   padding: 5px 0;
@@ -23,8 +26,6 @@ $border-color: #38598a;
   bottom: 125%;
   left: 50%;
   margin-left: -500%; // half the width
-  opacity: 0;
-  transition: opacity 0.5s;
   text-transform: none;
 }
 
@@ -42,4 +43,8 @@ $border-color: #38598a;
 .toolTipAnchor:hover .toolTipText {
   visibility: visible;
   opacity: 1;
+}
+
+.help-cursor {
+  cursor: help;
 }
