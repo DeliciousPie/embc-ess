@@ -1,5 +1,5 @@
 $base-color: #f8f9fa;
-$border-color: #38598a;
+$border-color: darken($base-color, 75%); //#38598a
 $trans-time: 0.75s;
 
 .toolTipAnchor {
