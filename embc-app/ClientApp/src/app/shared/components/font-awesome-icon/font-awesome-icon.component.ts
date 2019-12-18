@@ -17,9 +17,11 @@ export type IconSizes = 'lg'
 @Component({
   selector: 'app-font-awesome-icon',
   template: `
-    <i *ngIf="icon" [style.color]="color" [ngClass]="classes"></i>
+    <i *ngIf="icon" [style.color]="color" [ngClass]="classes">
+      <span class="toolTipText" *ngIf="toolTip">{{this.toolTip}}</span>
+    </i>
   `,
-  styles: []
+  styleUrls: ['./font-awesome-icon.component.scss']
 })
 export class FontAwesomeIconComponent {
 
@@ -27,23 +29,27 @@ export class FontAwesomeIconComponent {
   @Input() icon: string;
 
   // (Optional)
-  @Input() border = false;
-  @Input() className = '';  // CSS classes listed in the string (space delimited) are added.
-  @Input() color = 'inherit';
-  @Input() fixedWidth = false;
-  @Input() inverse = false;
+  @Input() border          = false;
+  @Input() className       = '';         // CSS classes listed in the string (space delimited) are added.
+  @Input() color           = 'inherit';
+  @Input() fixedWidth      = false;
+  @Input() inverse         = false;
   @Input() size: IconSizes = null;
+  @Input() toolTip: string = null;
 
   get classes() {
     const cssClasses = {
-      'fa-border': this.border,
-      'fa-fw': this.fixedWidth,
-      'fa-inverse': this.inverse,
+      'fa-border'            : this.border,
+      'fa-fw'                : this.fixedWidth,
+      'fa-inverse'           : this.inverse,
       [`fas fa-${this.icon}`]: this.icon !== null,
-      [`fa-${this.size}`]: this.size !== null,
-      [this.className]: this.className !== null,  // extra classes (if provided)
+      [`fa-${this.size}`]    : this.size !== null,
+      'toolTipAnchor'        : true,
+      'help-cursor'          : this.toolTip !== null,
+      [this.className]       : this.className !== null,   // extra classes (if provided)
     };
     return cssClasses;
   }
+
 
 }

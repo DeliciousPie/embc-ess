@@ -95,7 +95,7 @@
         <app-form-field class="col-md-6">
           <label for="gender">Gender</label>
           <select class="form-control" formControlName="gender" id="gender">
-            <option [ngValue]="null">Please select--</option>
+            <option [ngValue]="null">Please select</option>
             <option value="female">Female</option>
             <option value="male">Male</option>
             <option value="x">X</option>
@@ -112,7 +112,7 @@
 
     <h2 class="blue-header h3">Evacuee Family Information
       <!-- TODO: Implement animation for info circle on-hover -->
-      <app-font-awesome-icon icon="info-circle" className="ml-3 text-white" title="Each additional immediate family member needs to be added to your Evacuee Registration if they reside in the same household as you. Roommates or tenants of the same address need to be registered separately.">
+      <app-font-awesome-icon icon="info-circle" className="ml-3 text-white" toolTip="Each additional immediate family member needs to be added to your Evacuee Registration if they reside in the same household as you. Roommates or tenants of the same address need to be registered separately.">
       </app-font-awesome-icon>
     </h2>
     <section>
@@ -165,7 +165,7 @@
                 <div class="col-6">
                   <label class="required" for="relationshipToEvacuee-{{i}}">Relationship to evacuee</label>
                   <select [class.is-invalid]="invalid('relationshipToEvacuee', entry)" class="form-control" formControlName="relationshipToEvacuee" id="relationshipToEvacuee-{{i}}">
-                    <option [ngValue]="null">Please select--</option>
+                    <option [ngValue]="null">Please select</option>
                     <option [ngValue]="item" *ngFor="let item of relationshipTypes$ | async">{{item.description}}</option>
                   </select>
                   <span *ngIf="submitted" class="invalid-feedback">Please state your relationship to this family member.</span>
@@ -173,7 +173,7 @@
                 <div class="col">
                   <label for="gender-{{i}}">Gender</label>
                   <select class="form-control" formControlName="gender" id="gender-{{i}}">
-                    <option [ngValue]="null">Please select--</option>
+                    <option [ngValue]="null">Please select</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                     <option value="x">X</option>

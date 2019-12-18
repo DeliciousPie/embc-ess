@@ -1,0 +1,50 @@
+$base-color: #f8f9fa;
+$border-color: darken($base-color, 75%); //#38598a
+$trans-time: 0.75s;
+
+.toolTipAnchor {
+  position: relative;
+  display: inline-block;
+}
+
+.toolTipText {
+  visibility: hidden;
+  border: 1px solid $border-color;
+  opacity: 0;
+  transition: opacity $trans-time, visibility $trans-time;
+}
+
+.toolTipAnchor .toolTipText {
+  width: 1000%;
+  background-color: $base-color;
+  color: darken($base-color, 60%);
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -500%; // half the width
+  text-transform: none;
+}
+
+.toolTipAnchor .toolTipText::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: $border-color transparent transparent transparent;
+}
+
+.toolTipAnchor:hover .toolTipText {
+  visibility: visible;
+  opacity: 1;
+}
+
+.help-cursor {
+  cursor: help;
+}
