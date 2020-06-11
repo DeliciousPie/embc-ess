@@ -1,3 +1,7 @@
-<div role="alert" *ngIf="environment">
-  EMBC ESS <strong>{{environment}}</strong> Environment
+<div role="alert" [innerHTML]="envTitle"
+[ngClass]=" prodSelfReg ? 'prod-self-reg'
+: prod ? 'prod'
+: training ? 'train'
+: testing ? 'test'
+: 'dev'">
 </div>
